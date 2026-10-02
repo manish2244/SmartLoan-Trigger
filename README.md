@@ -1,32 +1,37 @@
-# Hi there, I'm Manish! 👋
+# 🏦 SmartLoan Trigger — Banking CRM System
 
-### 📊 Aspiring Data Analyst | Python | SQL | Machine Learning
+An intelligent, full-stack Banking CRM platform that leverages Machine Learning to segment customers, manage offers, and process loans dynamically.
 
-I am passionate about turning raw data into actionable insights. Currently building end-to-end data projects to solve real-world business problems.
+## 📌 Project Overview
 
----
+Banks need a smart way to understand which customers should be targeted for which offers. **SmartLoan Trigger** solves this by analyzing customer data and segmenting them into **Low, Middle, and High-income classes** based on their balance. It provides a dashboard for bank employees to manage interactions, send SMS, make calls, calculate EMIs, and maintain a complete audit history.
 
-### 🚀 Featured Project
-*   **[SmartLoan Trigger](https://github.com/manish2244/SmartLoan-Trigger)** — An intelligent Banking CRM system that uses ML (Random Forest) to segment customers and predict loan offers.
+## 🚀 Key Features
 
----
+*   **Intelligent Customer Segmentation:** 
+    *   🟢 **Low Income:** Balance < ₹2,000
+    *   🟡 **Middle Income:** Balance ₹2,000 – ₹5,000
+    *   🔵 **High Income / HNI:** Balance > ₹5,000
+*   **Dynamic Offer Engine:** Displays class-specific offers.
+*   **Customer Interaction Panel:** Call simulation with live timer and SMS system with class-based templates.
+*   **Loan Calculator & EMI System:** Real-time EMI calculation.
+*   **Activity History:** Complete audit trail of all interactions.
+*   **Analytics Dashboard:** Visual representation using Chart.js.
 
-### 🛠️ Skills
-*   **Languages:** Python, SQL, JavaScript, HTML/CSS
-*   **Data Analysis:** Pandas, NumPy, Matplotlib, Seaborn
-*   **Machine Learning:** Scikit-learn, Model Evaluation
-*   **Web & Databases:** Flask, SQLite, REST APIs
-*   **Tools:** Git, GitHub, VS Code, Jupyter Notebook
+## 🛠️ Tech Stack
 
----
+| Layer | Technologies |
+| :--- | :--- |
+| **Backend** | Python, Flask |
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
+| **Database** | SQLite3 |
+| **Data Processing & ML** | Pandas, Scikit-learn, Joblib |
+| **Data Visualization** | Chart.js |
+| **Tools** | Git, GitHub, VS Code |
 
-### 📈 GitHub Stats
-![Manish's GitHub stats](https://github-readme-stats.vercel.app/api?username=manish2244&show_icons=true&theme=radical)
+## ⚙️ Installation & Setup
 
----
-
-### 📫 Connect with Me
-*   [LinkedIn](https://www.linkedin.com/) *(Apna LinkedIn link daalo)*
-*   [Email](mailto:manishdwivedi19546@gmail.com)
-
-⭐️ From [manish2244](https://github.com/manish2244)
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/manish2244/SmartLoan-Trigger.git
+   cd SmartLoan-Trigger
