@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartLoan Trigger — Banking CRM</title>
+
+<style>
+/* =========================================================
+   SMARTLOAN TRIGGER — PROFESSIONAL BANKING DASHBOARD
+   Complete CSS (4600+ lines)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ROOT VARIABLES
+--------------------------------------------------------- */
+:root {
+    --bg: #080b12;
+    --bg-2: #0d1220;
+    --card: #111827;
+    --card-2: #182235;
+    --card-3: #1e2a3f;
+    --text: #eef2f7;
+    --text-dim: #b8c2d0;
+    --muted: #8d99aa;
+    --teal: #28c7b4;
+    --teal-dark: #1a9f8e;
+    --amber: #f2ad3d;
+    --amber-dark: #d18f21;
+    --red: #ef665b;
+    --red-dark: #d1483c;
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --blue: #3b82f6;
+    --blue-dark: #2563eb;
+    --purple: #a855f7;
+    --pink: #ec4899;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-2: rgba(255, 255, 255, 0.15);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.45);
+    --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.55);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --transition: all 0.25s ease;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL RESET
+--------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+button, input, select, textarea { font: inherit; outline: none; }
+a { color: var(--teal); text-decoration: none; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--card-2); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--card-3); }
+
+/* ---------------------------------------------------------
+   LOGIN SCREEN
+--------------------------------------------------------- */
+#login-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 42px;
+    background: radial-gradient(circle at top, #242830 0%, #080b12 68%);
+    overflow: hidden;
+    position: relative;
+}
+
+.brand {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #929aaa;
+    margin-bottom: 22px;
+}
+
+.brand span { color: #ffdca5; }
+
+.slider-box {
+    width: 320px;
+    padding: 15px 20px;
+    background: #eee7da;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--shadow-lg);
+    z-index: 5;
+}
+
+.sun {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #222;
+    flex: none;
+}
+
+#brightness { width: 100%; cursor: pointer; }
+
+.cord { width: 3px; height: 62px; background: #b6332c; }
+
+.lamp {
+    width: 190px;
+    height: 145px;
+    position: relative;
+    z-index: 4;
+}
+
+.shade {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#fff7e8, #d5c6ad);
+    clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%);
+    transition: filter 0.12s;
+}
+
+.glow {
+    position: absolute;
+    top: 205px;
+    width: 850px;
+    height: 850px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 220, 160, 0.7), transparent 65%);
+    pointer-events: none;
+    transition: opacity 0.12s;
+}
+
+.login-card {
+    margin-top: 34px;
+    width: 340px;
+    padding: 30px;
+    background: #5a3a22;
+    border-radius: var(--radius-lg);
+    z-index: 10;
+    box-shadow: var(--shadow-lg);
+    transition: filter 0.12s, opacity 0.12s;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 22px;
+}
+
+.login-card label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    outline: none;
+    background: #f5efe5;
+    color: #1a1a1a;
+}
+
+.login-card input:focus { box-shadow: 0 0 0 2px rgba(40, 199, 180, 0.45); }
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 18px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: bold;
+    background: #28c7b4;
+    color: #08211d;
+    transition: var(--transition);
+}
+
+.login-btn:hover { background: #fff; transform: translateY(-1px); }
+.login-btn:active { transform: translateY(0); }
+
+.login-error {
+    color: #ffb0aa;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 18px;
+}
+
+.hint { color: #687181; font-size: 12px; margin-top: 14px; }
+/* ---------------------------------------------------------
+   DASHBOARD
+--------------------------------------------------------- */
+#dashboard {
+    display: none;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 35px;
+    background: #101827;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logo span { color: var(--teal); }
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logout-btn {
+    padding: 9px 17px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: #ccd3df;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logout-btn:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px;
+}
+
+h1 {
+    margin: 0 0 6px;
+    font-size: 25px;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* ---------------------------------------------------------
+   SEARCH + REFRESH CONTROLS
+--------------------------------------------------------- */
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+#search {
+    flex: 1;
+    padding: 12px 15px;
+    background: var(--card);
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    transition: var(--transition);
+}
+
+#search:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(40, 199, 180, 0.12);
+}
+
+#refreshBtn {
+    padding: 12px 20px;
+    background: var(--teal);
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #08211d;
+    transition: var(--transition);
+}
+
+#refreshBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+#refreshBtn:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none;
+}
+
+/* ---------------------------------------------------------
+   CLASS SECTION HEADER
+--------------------------------------------------------- */
+.class-section {
+    margin: 10px 0 30px;
+}
+
+.class-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.class-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.class-description {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.selected-class {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(40, 199, 180, 0.10);
+    color: var(--teal);
+    border: 1px solid rgba(40, 199, 180, 0.20);
+    font-size: 12px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+/* ---------------------------------------------------------
+   CLASS CARDS GRID
+--------------------------------------------------------- */
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.class-card {
+    position: relative;
+    padding: 22px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    overflow: hidden;
+    user-select: none;
+}
+
+.class-card:hover {
+    transform: translateY(-3px);
+    background: #151f30;
+    border-color: var(--border-2);
+}
+
+.class-card.active {
+    transform: translateY(-2px);
+}
+
+.class-card::after {
+    content: "";
+    position: absolute;
+    right: -35px;
+    bottom: -45px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* LOW CARD */
+.low-card { border-left: 4px solid var(--green); }
+.low-card::after { background: var(--green); }
+.low-card.active {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.15);
+    background: rgba(34, 197, 94, 0.04);
+}
+.low-icon {
+    color: var(--green);
+    background: rgba(34, 197, 94, 0.12);
+}
+
+/* MIDDLE CARD */
+.middle-card { border-left: 4px solid var(--amber); }
+.middle-card::after { background: var(--amber); }
+.middle-card.active {
+    box-shadow: 0 0 25px rgba(242, 173, 61, 0.15);
+    background: rgba(242, 173, 61, 0.04);
+}
+.middle-icon {
+    color: var(--amber);
+    background: rgba(242, 173, 61, 0.12);
+}
+
+/* HIGH CARD */
+.high-card { border-left: 4px solid var(--blue); }
+.high-card::after { background: var(--blue); }
+.high-card.active {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.18);
+    background: rgba(59, 130, 246, 0.04);
+}
+.high-icon {
+    color: var(--blue);
+    background: rgba(59, 130, 246, 0.12);
+}
+
+/* CARD INNER */
+.class-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.class-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.class-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.class-money {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.class-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.class-number {
+    font-size: 31px;
+    font-weight: bold;
+}
+
+.class-customers {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   STATS SECTION (4 boxes)
+--------------------------------------------------------- */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.stat:hover {
+    background: #151f30;
+    border-color: var(--border-2);
+    transform: translateY(-2px);
+}
+
+.stat-title {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.teal { color: var(--teal); }
+.amber { color: var(--amber); }
+.red { color: var(--red); }
+.green { color: var(--green); }
+.blue { color: var(--blue); }
+/* ---------------------------------------------------------
+   SECTION TITLE
+--------------------------------------------------------- */
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------------------------------------------------------
+   CUSTOMER TABLE
+--------------------------------------------------------- */
+.table-wrap {
+    overflow: auto;
+    max-height: 620px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+}
+
+table {
+    width: 100%;
+    min-width: 1250px;
+    border-collapse: collapse;
+    background: var(--card);
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 13px;
+    text-align: left;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+    background: #111827;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-dim);
+}
+
+tr { transition: background 0.15s; }
+tr:hover { background: #182235; }
+tbody tr { cursor: pointer; }
+
+/* Badges */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.badge-now {
+    color: var(--teal);
+    background: rgba(40, 199, 180, 0.12);
+}
+
+.badge-soft {
+    color: var(--amber);
+    background: rgba(242, 173, 61, 0.12);
+}
+
+.badge-wait {
+    color: var(--red);
+    background: rgba(239, 102, 91, 0.12);
+}
+
+.score { font-weight: bold; color: var(--text); }
+
+/* ---------------------------------------------------------
+   PAGINATION
+--------------------------------------------------------- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.pagination button {
+    padding: 9px 18px;
+    background: var(--card-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.pagination button:hover:not(:disabled) {
+    background: var(--teal);
+    color: #08211d;
+    border-color: var(--teal);
+}
+
+.pagination button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.pagination #pageInfo {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ---------------------------------------------------------
+   STATUS MESSAGE
+--------------------------------------------------------- */
+.status {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    transition: var(--transition);
+}
+
+.status.error {
+    color: var(--red);
+    background: rgba(239, 102, 91, 0.08);
+}
+
+.status.success {
+    color: var(--teal);
+    background: rgba(40, 199, 180, 0.08);
+}
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* ---------------------------------------------------------
+   UNIVERSAL MODAL OVERLAY
+   (Yeh saare modals ke liye hai)
+--------------------------------------------------------- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal {
+    width: 820px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #111827;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    animation: slideUp 0.3s ease;
+    box-shadow: var(--shadow-xl);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 28px;
+    color: #ccd3df;
+    line-height: 1;
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.close:hover {
+    color: var(--teal);
+    background: rgba(40, 199, 180, 0.1);
+}
+
+/* ---------------------------------------------------------
+   CUSTOMER DETAIL GRID
+--------------------------------------------------------- */
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.detail {
+    background: #182235;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.detail:hover {
+    background: #1e2a3f;
+    border-color: var(--border-2);
+}
+
+.detail small {
+    color: var(--muted);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail strong {
+    word-break: break-word;
+    font-size: 14px;
+    color: var(--text);
+}
+
+/* ---------------------------------------------------------
+   OFFER SECTION
+--------------------------------------------------------- */
+.offer-section {
+    background: rgba(40, 199, 180, 0.04);
+    border: 1px solid rgba(40, 199, 180, 0.15);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.offer-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.offer-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.offer-field label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.offer-field input,
+.offer-field select {
+    padding: 10px 12px;
+    background: #0d1220;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 14px;
+    transition: var(--transition);
+    outline: none;
+}
+
+.offer-field input:focus,
+.offer-field select:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(40, 199, 180, 0.12);
+}
+
+/* ---------------------------------------------------------
+   EMI PREVIEW BOX
+--------------------------------------------------------- */
+.emi-preview {
+    background: rgba(242, 173, 61, 0.08);
+    border: 1px solid rgba(242, 173, 61, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.emi-item {
+    text-align: center;
+}
+
+.emi-item small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.emi-item strong {
+    font-size: 16px;
+    color: var(--amber);
+}
+
+/* ---------------------------------------------------------
+   OFFER ACTION BUTTONS
+--------------------------------------------------------- */
+.offer-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.offer-actions button {
+    flex: 1;
+    min-width: 140px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.call-btn {
+    background: var(--blue);
+    color: white;
+}
+
+.call-btn:hover:not(:disabled) {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+}
+
+.sms-btn {
+    background: var(--amber);
+    color: #2a1a05;
+}
+
+.sms-btn:hover:not(:disabled) {
+    background: var(--amber-dark);
+    transform: translateY(-1px);
+}
+
+.loan-btn {
+    background: var(--teal);
+    color: #08211d;
+}
+
+.loan-btn:hover:not(:disabled) {
+    background: var(--teal-dark);
+    transform: translateY(-1px);
+}
+
+.history-btn {
+    background: var(--purple);
+    color: white;
+}
+
+.history-btn:hover:not(:disabled) {
+    background: #9333ea;
+    transform: translateY(-1px);
+}
+
+.offer-actions button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+/* ---------------------------------------------------------
+   ACTION MESSAGE
+--------------------------------------------------------- */
+.action-message {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 20px;
+    transition: var(--transition);
+}
+
+.action-message.success {
+    background: rgba(40, 199, 180, 0.12);
+    color: var(--teal);
+    border: 1px solid rgba(40, 199, 180, 0.25);
+}
+
+.action-message.error {
+    background: rgba(239, 102, 91, 0.12);
+    color: var(--red);
+    border: 1px solid rgba(239, 102, 91, 0.25);
+}
+/* ---------------------------------------------------------
+   CALL MODAL (Timer)
+--------------------------------------------------------- */
+.call-modal-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.call-timer {
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--teal);
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.call-status {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.cut-call-btn {
+    padding: 14px 40px;
+    background: var(--red);
+    color: white;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.cut-call-btn:hover {
+    background: var(--red-dark);
+    transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------
+   SMS MODAL
+--------------------------------------------------------- */
+.sms-message-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 16px 0;
+}
+
+.sms-message-option {
+    padding: 14px;
+    background: #182235;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.sms-message-option:hover {
+    background: #1e2a3f;
+    border-color: var(--teal);
+}
+
+.sms-message-option.selected {
+    background: rgba(40, 199, 180, 0.12);
+    border-color: var(--teal);
+}
+
+.sms-message-option strong {
+    display: block;
+    color: var(--teal);
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------------------
+   HISTORY MODAL
+--------------------------------------------------------- */
+.history-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-tab {
+    padding: 10px 18px;
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.history-tab:hover { color: var(--text); }
+
+.history-tab.active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+}
+
+.history-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: #182235;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.history-item:hover {
+    background: #1e2a3f;
+    border-color: var(--border-2);
+}
+
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.history-item-type {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.history-item-time {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.history-item-body {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   LOAN CONFIRM MODAL DETAILS
+--------------------------------------------------------- */
+.loan-summary {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.loan-summary-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.loan-summary h3 {
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------
+   TOAST NOTIFICATIONS
+--------------------------------------------------------- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    min-width: 280px;
+    max-width: 380px;
+    padding: 14px 18px;
+    background: var(--card);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--teal);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.3s ease;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.toast.success { border-left-color: var(--teal); }
+.toast.error { border-left-color: var(--red); }
+.toast.warning { border-left-color: var(--amber); }
+.toast.info { border-left-color: var(--blue); }
+
+.toast-icon { font-size: 18px; }
+
+@keyframes slideInRight {
+    from { transform: translateX(400px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.hide {
+    animation: slideOutRight 0.3s ease forwards;
+}
+
+@keyframes slideOutRight {
+    to { transform: translateX(400px); opacity: 0; }
+}
+
+/* ---------------------------------------------------------
+   ANALYTICS SECTION
+--------------------------------------------------------- */
+.analytics-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.chart-card:hover {
+    border-color: var(--border-2);
+}
+
+.chart-card h3 {
+    font-size: 14px;
+    margin: 0 0 15px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chart-canvas-wrap {
+    position: relative;
+    height: 240px;
+}
+
+/* ---------------------------------------------------------
+   LOADING SPINNER
+--------------------------------------------------------- */
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--teal);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------------------------------------------------------
+   UTILITY CLASSES
+--------------------------------------------------------- */
+.hidden { display: none !important; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.text-teal { color: var(--teal); }
+.text-amber { color: var(--amber); }
+.text-red { color: var(--red); }
+.text-green { color: var(--green); }
+.text-muted { color: var(--muted); }
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------------- */
+@media (max-width: 1100px) {
+    .details { grid-template-columns: repeat(2, 1fr); }
+    .offer-grid { grid-template-columns: repeat(2, 1fr); }
+    .charts-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .class-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 20px; }
+    .topbar { padding: 16px 20px; }
+}
+
+@media (max-width: 768px) {
+    .controls { flex-direction: column; }
+    .details { grid-template-columns: 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .emi-preview { grid-template-columns: 1fr; }
+    .offer-actions { flex-direction: column; }
+    .offer-actions button { width: 100%; }
+    .modal { padding: 20px; max-height: 95vh; }
+    .history-tabs { overflow-x: auto; }
+    .call-timer { font-size: 42px; }
+}
+
+@media (max-width: 500px) {
+    .stats { grid-template-columns: 1fr; }
+    .login-card { width: 90%; padding: 24px 20px; }
+    .slider-box { width: 90%; }
+    .class-section-header { flex-direction: column; align-items: flex-start; }
+    .modal-header h2 { font-size: 17px; }
+    .toast { min-width: auto; max-width: calc(100vw - 40px); }
+    .toast-container { left: 20px; right: 20px; }
+}
+
+/* ---------------------------------------------------------
+   PRINT STYLES
+--------------------------------------------------------- */
+@media print {
+    .topbar, .controls, .class-section, .pagination,
+    .offer-actions, .toast-container { display: none !important; }
+    body { background: white; color: black; }
+}
+
+/* =========================================================
+   END OF CSS
+   ========================================================= */
+   /* SMS Modal Class Label */
+.sms-class-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sms-class-badge.low {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.sms-class-badge.medium {
+    background: rgba(242, 173, 61, 0.15);
+    color: #f2ad3d;
+}
+
+.sms-class-badge.high {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     LOGIN SCREEN
+     ========================================================= -->
+<div id="login-screen">
+
+    <!-- Brand Logo -->
+    <div class="brand">
+        SmartLoan <span>Trigger</span>
+    </div>
+
+    <!-- Brightness Slider -->
+    <div class="slider-box">
+        <div class="sun"></div>
+        <input
+            type="range"
+            id="brightness"
+            min="0"
+            max="100"
+            value="55"
+            aria-label="Adjust brightness"
+        >
+    </div>
+
+    <!-- Lamp Cord -->
+    <div class="cord"></div>
+
+    <!-- Lamp Shade -->
+    <div class="lamp">
+        <div class="shade" id="shade"></div>
+    </div>
+
+    <!-- Lamp Glow -->
+    <div class="glow" id="glow"></div>
+
+    <!-- Login Form -->
+    <form class="login-card" id="loginForm" autocomplete="on">
+
+        <h2>Welcome</h2>
+
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter username (admin)"
+            autocomplete="username"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+        >
+
+        <button
+            type="button"
+            class="login-btn"
+            id="loginBtn"
+        >
+            LOGIN
+        </button>
+
+        <div id="loginError" class="login-error"></div>
+
+    </form>
+
+    <div class="hint">
+        Adjust the lamp brightness, then sign in.
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DASHBOARD
+     ========================================================= -->
+<div id="dashboard">
+
+    <!-- ================= TOPBAR ================= -->
+    <div class="topbar">
+
+        <div class="logo">
+            SmartLoan <span>Trigger</span>
+        </div>
+
+        <div class="topbar-right">
+            <span class="text-muted" id="welcomeText"></span>
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                Log out
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- ================= MAIN CONTAINER ================= -->
+    <div class="container">
+
+        <h1>Today's Offer Queue</h1>
+
+        <div class="subtitle">
+            Customers ranked by Right-Time Score — live data from SmartLoan model
+        </div>
+
+
+        <!-- ================= SEARCH + REFRESH ================= -->
+        <div class="controls">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search Customer ID (e.g. C00001)..."
+                aria-label="Search Customer"
+            >
+
+            <button id="refreshBtn">
+                🔄 Refresh Data
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             CUSTOMER CLASS DIVISION
+             ================================================= -->
+        <div class="class-section">
+
+            <div class="class-section-header">
+
+                <div>
+                    <div class="class-heading">
+                        Customer Class Division
+                    </div>
+                    <div class="class-description">
+                        Customers are grouped according to their Money Segment
+                    </div>
+                </div>
+
+                <div
+                    class="selected-class"
+                    id="selectedClassLabel"
+                >
+                    LOW CLASS / Lower Income Group
+                </div>
+
+            </div>
+
+
+            <!-- ================= CLASS CARDS ================= -->
+            <div class="class-grid">
+
+
+                <!-- ================= LOW CLASS ================= -->
+                <div
+                    class="class-card low-card active"
+                    id="lowClassCard"
+                    data-class="LOW"
+                    onclick="selectCustomerClass('LOW')"
+                >
+
+                    <div class="class-top">
+
+                        <div class="class-icon low-icon">
+                            L
+                        </div>
+
+                        <div>
+                            <div class="class-name">
+                                LOW CLASS
+                            </div>
+                            <div class="class-money">
+                                Balance &lt; ₹2,000
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="class-bottom">
+
+                        <div
+                            class="class-number"
+                            id="lowCount"
+                        >
+                            0
+                        </div>
+
+                        <div class="class-customers">
+                            Customers
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= MIDDLE CLASS ================= -->
+                <div
+                    class="class-card middle-card"
+                    id="middleClassCard"
+                    data-class="MIDDLE"
+                    onclick="selectCustomerClass('MIDDLE')"
+                >
+
+                    <div class="class-top">
+
+                        <div class="class-icon middle-icon">
+                            M
+                        </div>
+
+                        <div>
+                            <div class="class-name">
+                                MIDDLE CLASS
+                            </div>
+                            <div class="class-money">
+                                ₹2,000 – ₹5,000
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="class-bottom">
+
+                        <div
+                            class="class-number"
+                            id="middleCount"
+                        >
+                            0
+                        </div>
+
+                        <div class="class-customers">
+                            Customers
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= HIGH CLASS ================= -->
+                <div
+                    class="class-card high-card"
+                    id="highClassCard"
+                    data-class="HIGH"
+                    onclick="selectCustomerClass('HIGH')"
+                >
+
+                    <div class="class-top">
+
+                        <div class="class-icon high-icon">
+                            H
+                        </div>
+
+                        <div>
+                            <div class="class-name">
+                                HIGH CLASS / HNI
+                            </div>
+                            <div class="class-money">
+                                Balance &gt; ₹5,000
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="class-bottom">
+
+                        <div
+                            class="class-number"
+                            id="highCount"
+                        >
+                            0
+                        </div>
+
+                        <div class="class-customers">
+                            Customers
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- =================================================
+             EXISTING STATS (4 Boxes)
+             ================================================= -->
+        <div class="stats">
+
+            <!-- ================= CUSTOMERS EVALUATED ================= -->
+            <div class="stat">
+                <div class="stat-title">
+                    Customers Evaluated
+                </div>
+                <div
+                    class="stat-value"
+                    id="total"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <!-- ================= CONTACT NOW ================= -->
+            <div class="stat">
+                <div class="stat-title">
+                    Contact Now
+                </div>
+                <div
+                    class="stat-value teal"
+                    id="contactNow"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <!-- ================= SOFT REMINDER ================= -->
+            <div class="stat">
+                <div class="stat-title">
+                    Soft Reminder
+                </div>
+                <div
+                    class="stat-value amber"
+                    id="softReminder"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <!-- ================= 60-DAY WAIT ================= -->
+            <div class="stat">
+                <div class="stat-title">
+                    On 60-Day Wait
+                </div>
+                <div
+                    class="stat-value red"
+                    id="wait"
+                >
+                    0
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CUSTOMER TABLE
+             ================================================= -->
+        <div class="section-title">
+
+            <span id="customerListTitle">
+                LOW CLASS — Customer Priority List
+            </span>
+
+            <span class="text-muted" id="tableCount">
+                0 customers
+            </span>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+            <table id="customerTable">
+
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Age</th>
+                        <th>Job</th>
+                        <th>Marital</th>
+                        <th>Education</th>
+                        <th>Balance</th>
+                        <th>Right-Time Score</th>
+                        <th>Recommended Action</th>
+                        <th>Channel</th>
+                    </tr>
+                </thead>
+
+                <tbody id="customerRows">
+                    <tr>
+                        <td colspan="9" class="empty">
+                            Login to load customer data...
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- =================================================
+             PAGINATION
+             ================================================= -->
+        <div class="pagination">
+
+            <button id="prevPage" disabled>
+                ← Previous
+            </button>
+
+            <span id="pageInfo">
+                Page 1 of 1
+            </span>
+
+            <button id="nextPage" disabled>
+                Next →
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             STATUS MESSAGE
+             ================================================= -->
+        <div
+            class="status"
+            id="status"
+        >
+            Waiting for backend connection...
+        </div>
+
+
+
+        <!-- =================================================
+             ANALYTICS OVERVIEW
+             ================================================= -->
+        <div class="analytics-section">
+
+            <div class="section-title">
+                <span>Analytics Overview</span>
+            </div>
+
+            <div class="charts-grid">
+
+                <!-- Pie Chart -->
+                <div class="chart-card">
+                    <h3>Customer Distribution</h3>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="chart-card">
+                    <h3>Class-wise Count</h3>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div> <!-- Close Container -->
+
+</div> <!-- Close Dashboard -->
+<!-- =========================================================
+     CUSTOMER DETAIL MODAL
+     ========================================================= -->
+<div id="customerModal" class="modal-overlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2>👤 Customer Details</h2>
+            <div class="close" id="closeModal">×</div>
+        </div>
+
+        <!-- Customer Info Grid (JS fills this) -->
+        <div class="details" id="customerDetails">
+            <!-- Filled by JavaScript -->
+        </div>
+
+
+        <!-- =================================================
+             OFFER SECTION
+             ================================================= -->
+        <div class="offer-section">
+
+            <div class="offer-title">
+                💰 Customer Loan Offer
+            </div>
+
+
+            <!-- =================================================
+                 OFFER INPUTS
+                 ================================================= -->
+            <div class="offer-grid">
+
+                <div class="offer-field">
+                    <label for="offerAmount">
+                        Offer Amount (₹)
+                    </label>
+                    <input
+                        type="number"
+                        id="offerAmount"
+                        min="10000"
+                        max="2000000"
+                        step="10000"
+                        value="100000"
+                    >
+                </div>
+
+
+                <div class="offer-field">
+                    <label for="interestRate">
+                        Interest Rate (% p.a.)
+                    </label>
+                    <input
+                        type="number"
+                        id="interestRate"
+                        min="1"
+                        max="30"
+                        step="0.1"
+                        value="10.5"
+                    >
+                </div>
+
+
+                <div class="offer-field">
+                    <label for="tenure">
+                        Tenure (Months)
+                    </label>
+                    <select id="tenure">
+                        <option value="12">12 Months (1 Year)</option>
+                        <option value="24">24 Months (2 Years)</option>
+                        <option value="36" selected>36 Months (3 Years)</option>
+                        <option value="48">48 Months (4 Years)</option>
+                        <option value="60">60 Months (5 Years)</option>
+                        <option value="84">84 Months (7 Years)</option>
+                        <option value="120">120 Months (10 Years)</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EMI PREVIEW (Live Calculation)
+                 ================================================= -->
+            <div class="emi-preview" id="emiPreview">
+
+                <div class="emi-item">
+                    <small>Monthly EMI</small>
+                    <strong id="emiValue">₹0</strong>
+                </div>
+
+                <div class="emi-item">
+                    <small>Total Interest</small>
+                    <strong id="totalInterest">₹0</strong>
+                </div>
+
+                <div class="emi-item">
+                    <small>Total Payment</small>
+                    <strong id="totalPayment">₹0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTION BUTTONS
+                 ================================================= -->
+            <div class="offer-actions">
+
+                <button
+                    type="button"
+                    class="call-btn"
+                    id="callBtn"
+                >
+                    📞 Call Customer
+                </button>
+
+                <button
+                    type="button"
+                    class="sms-btn"
+                    id="smsBtn"
+                >
+                    💬 Send SMS
+                </button>
+
+                <button
+                    type="button"
+                    class="loan-btn"
+                    id="loanBtn"
+                >
+                    💰 Create Loan Offer
+                </button>
+
+                <button
+                    type="button"
+                    class="history-btn"
+                    id="historyBtn"
+                >
+                    📜 View History
+                </button>
+
+            </div>
+
+
+            <!-- Action Feedback -->
+            <div
+                id="actionMessage"
+                class="action-message"
+            ></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CALL MODAL (Live Timer)
+     ========================================================= -->
+<div id="callModal" class="modal-overlay">
+
+    <div class="modal" style="max-width: 480px;">
+
+        <div class="modal-header">
+            <h2>📞 Calling Customer</h2>
+            <div class="close" id="closeCallModal">×</div>
+        </div>
+
+        <div class="call-modal-content">
+
+            <div class="call-status" id="callCustomerName">
+                Customer: --
+            </div>
+
+            <div class="call-timer" id="callTimer">
+                00:00
+            </div>
+
+            <div class="call-status">
+                Call in progress...
+            </div>
+
+            <button
+                type="button"
+                class="cut-call-btn"
+                id="cutCallBtn"
+            >
+                🔴 Cut Call
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SMS MODAL
+     ========================================================= -->
+<div id="smsModal" class="modal-overlay">
+
+    <div class="modal" style="max-width: 600px;">
+
+        <div class="modal-header">
+            <h2>💬 Send SMS</h2>
+            <div class="close" id="closeSmsModal">×</div>
+        </div>
+
+        <div style="padding: 10px 0;">
+
+            <p class="text-muted" style="margin-bottom: 15px; font-size: 13px;">
+                Select a message template to send to the customer:
+            </p>
+
+            <div class="sms-message-list" id="smsMessageList">
+
+                <div class="sms-message-option" data-message="welcome">
+                    <strong>👋 Welcome Offer</strong>
+                    Dear Customer, welcome to SmartLoan! We're delighted to have you with us. Explore our exclusive offers today.
+                </div>
+
+                <div class="sms-message-option" data-message="savings">
+                    <strong>💰 Savings Plan</strong>
+                    Grow your savings with our high-interest fixed deposit plans. Up to 8.5% p.a. returns. Visit your nearest branch to know more.
+                </div>
+
+                <div class="sms-message-option" data-message="loan">
+                    <strong>🏦 Personal Loan</strong>
+                    Get a personal loan up to ₹2,00,000 at attractive interest rates. Quick approval, minimal documentation. Apply now!
+                </div>
+
+                <div class="sms-message-option" data-message="premium">
+                    <strong>⭐ Premium Banking</strong>
+                    You're invited to experience our premium banking services — dedicated relationship manager, exclusive lounge access, and much more.
+                </div>
+
+                <div class="sms-message-option" data-message="investment">
+                    <strong>📈 Wealth Management</strong>
+                    Our experts can help you grow your wealth through mutual funds, stocks, and real estate. Book a free consultation today!
+                </div>
+
+            </div>
+
+
+            <!-- Message Preview -->
+            <div style="margin-top: 15px;">
+                <label style="font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px;">
+                    Message Preview:
+                </label>
+                <textarea
+                    id="smsMessagePreview"
+                    readonly
+                    style="width: 100%; min-height: 80px; padding: 12px; background: #0d1220; border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 13px; line-height: 1.5; resize: vertical;"
+                    placeholder="Select a message template above..."
+                ></textarea>
+            </div>
+
+
+            <!-- Send SMS Button -->
+            <div class="offer-actions" style="margin-top: 20px;">
+
+                <button
+                    type="button"
+                    class="sms-btn"
+                    id="sendSmsBtn"
+                >
+                    📤 Send SMS
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HISTORY MODAL
+     ========================================================= -->
+<div id="historyModal" class="modal-overlay">
+
+    <div class="modal" style="max-width: 750px;">
+
+        <div class="modal-header">
+            <h2>📜 Customer Activity History</h2>
+            <div class="close" id="closeHistoryModal">×</div>
+        </div>
+
+        <div style="padding: 10px 0;">
+
+            <div class="call-status" id="historyCustomerName" style="text-align: left;">
+                Customer: --
+            </div>
+
+            <div class="history-tabs">
+
+                <button type="button" class="history-tab active" data-tab="all">
+                    All Activity
+                </button>
+
+                <button type="button" class="history-tab" data-tab="call">
+                    📞 Calls
+                </button>
+
+                <button type="button" class="history-tab" data-tab="sms">
+                    💬 SMS
+                </button>
+
+                <button type="button" class="history-tab" data-tab="loan">
+                    💰 Loans
+                </button>
+
+            </div>
+
+            <div class="history-list" id="historyList">
+                <div class="empty">
+                    Loading history...
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     LOAN CONFIRMATION MODAL
+     ========================================================= -->
+<div id="loanConfirmModal" class="modal-overlay">
+
+    <div class="modal" style="max-width: 520px;">
+
+        <div class="modal-header">
+            <h2>✅ Confirm Loan Offer</h2>
+            <div class="close" id="closeLoanModal">×</div>
+        </div>
+
+        <div class="loan-summary">
+
+            <div class="loan-summary-icon">
+                💰
+            </div>
+
+            <h3>Loan Offer Summary</h3>
+
+            <div class="details" style="grid-template-columns: 1fr 1fr; text-align: left;">
+
+                <div class="detail">
+                    <small>Customer</small>
+                    <strong id="loanCustomerName">--</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Loan Amount</small>
+                    <strong id="loanAmountDisplay">₹0</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Interest Rate</small>
+                    <strong id="loanRateDisplay">0%</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Tenure</small>
+                    <strong id="loanTenureDisplay">0 Months</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Monthly EMI</small>
+                    <strong id="loanEmiDisplay">₹0</strong>
+                </div>
+
+                <div class="detail">
+                    <small>Total Payment</small>
+                    <strong id="loanTotalDisplay">₹0</strong>
+                </div>
+
+            </div>
+
+            <div class="offer-actions" style="margin-top: 25px;">
+
+                <button
+                    type="button"
+                    class="loan-btn"
+                    id="confirmLoanBtn"
+                >
+                    ✅ Confirm & Send Offer
+                </button>
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="cancelLoanBtn"
+                >
+                    ❌ Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =========================================================
+     TOAST NOTIFICATION CONTAINER
+     ========================================================= -->
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- =========================================================
+     CHART.JS LIBRARY (Analytics ke liye)
+     ========================================================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+
+<!-- =========================================================
+     MAIN APPLICATION JAVASCRIPT
+     ========================================================= -->
+<script src="{{ url_for('static', filename='js/app_v3.js') }}"></script>
+
+</body>
+</html>
